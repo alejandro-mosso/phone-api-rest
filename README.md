@@ -1,16 +1,6 @@
-# phone-api-rest
-
+# How to run the application
 This is a test developed for PerfectPitchTech.
 
-Here you will find:
-<ul>
-   <li>Formatted csv file: 
-   <br/><code>phone-api-rest/numbers-response.csv</code></li>
-   <li>Filtered phone numbers: 
-   <br/><code>phone-api-rest/numbers-filterd.csv</code></li> 
-</ul>
-
-# How to run the application
 To execute and test the application run below commands in terminal:
 <ul>
     <il>Download the project
@@ -28,6 +18,15 @@ To execute and test the application run below commands in terminal:
     </code></li>
 </ul>
 <br/>
+
+After cloning the project you will find in your local 
+directory below files:
+<ul>
+   <li>Formatted csv file: 
+   <br/><code>phone-api-rest/numbers-response.csv</code></li>
+   <li>Filtered phone numbers: 
+   <br/><code>phone-api-rest/numbers-filterd.csv</code></li> 
+</ul>
 
 # Markdown with the improvements
 In order to improve performance in phonenumber library 
