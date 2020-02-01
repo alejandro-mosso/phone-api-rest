@@ -4,24 +4,29 @@ This is a test developed for PerfectPitchTech.
 
 Here you will find:
 <ul>
-   <li>Docker image under: app/phone-api-rest_app.gz</li>
-   <li>Formatted csv file: app/numbers-response.csv</li>
-   <li>Filtered phone numbers: app/numbers-filterd.csv</li> 
+   <li>Formatted csv file: 
+   <br/><code>phone-api-rest/numbers-response.csv</code></li>
+   <li>Filtered phone numbers: 
+   <br/><code>phone-api-rest/numbers-filterd.csv</code></li> 
 </ul>
 
 # How to run the application
-To execute and test the application follow below steps:
+To execute and test the application run below commands in terminal:
 <ul>
-    <il>Download Docker image from: app/phone-api-rest_app.gz </il>
-    <li>Import and start Docker container</li>
+    <il>Download the project
+        <br/><code>git clone https://github.com/alejandro-mosso/phone-api-rest</code>
+    </il>
+    <li>Then run below commands under phone-api-rest:
+        <br/><code>docker-compose build</code>
+        <br/><code>docker-compose up</code>
+    </li>
+    <li>After starting Docker container, 
+    run below commands from terminal:
+    <code>
+    <br/>curl -i -X POST -H "Content-Type: multipart/form-data" -F "numbers=@numbers.csv" http://localhost:9000/locate_numbers
+    <br/>curl http://localhost:9000/locate_numbers?number=+13101231234
+    </code></li>
 </ul>
-
-After importing and starting Docker container, 
-run below commands from terminal:
-<p><code>
-curl -i -X POST -H "Content-Type: multipart/form-data" -F "numbers=@numbers.csv" http://localhost:9000/locate_numbers
-curl http://localhost:9000/locate_numbers?number=+13101231234
-</code></p>
 <br/>
 
 # Markdown with the improvements
