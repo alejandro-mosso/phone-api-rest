@@ -104,7 +104,7 @@ def reformat(tup):
     row = tup[1]
     phone: PhoneNumber = parse('+1 ' + row.numbers, None)
     location_arr = get_location_for_number(phone)
-    is_valid = is_valid_number(phone) # len(location_arr) > 0 #
+    is_valid = is_valid_number(phone) # not location_arr[0] == 'n/a' #
 
     row.is_valid = is_valid
     row.location = location_arr[0]
@@ -113,9 +113,7 @@ def reformat(tup):
     return row
 
 
-def filter_number(row, in_number):
-    phone = parse(in_number, None)
-    location = get_location_for_number(phone)
+def filter_number(row, location):
     return row.state == location[1]
 
 
@@ -144,16 +142,18 @@ def locate_nearest_numbers(input_number, csv_location):
     partition_size = ceil(len(data_frame.index)/running_cores)
 
     processes = []
+    phone = parse(input_number, None)
+    location = get_location_for_number(phone)
 
     for i in range(running_cores):
         source = Stream(asynchronous=True)
         source.map(get_data_frame).flatten().\
-            map(set_location).filter(filter_number, input_number).\
+            map(set_location).filter(filter_number, location).\
             sink(print_dataframe, queue)
         process = Process(target=emit_iterator, args=(source, iter1, partition_size, i))
         processes.append(process)
         process.start()
-
+    """
     while 1:
         is_running = any(p.is_alive() for p in processes)
         while not queue.empty():
@@ -163,7 +163,8 @@ def locate_nearest_numbers(input_number, csv_location):
 
     for p in processes:
         p.join()
-
+    """
+    result = [queue, processes]
     return result
 
 
@@ -190,6 +191,7 @@ def reformat_numbers(csv_location):
         processes.append(process)
         process.start()
 
+    """
     while 1:
         is_running = any(p.is_alive() for p in processes)
         while not queue.empty():
@@ -199,7 +201,8 @@ def reformat_numbers(csv_location):
 
     for p in processes:
         p.join()
-
+    """
+    result = [queue, processes]
     return result
 
 
