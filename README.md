@@ -7,7 +7,7 @@ To execute and test the application run below commands in terminal:
         <br/><code>git clone https://github.com/alejandro-mosso/phone-api-rest</code>
     </il>
     <li>Then run below commands under phone-api-rest:
-        <br/><code><b>$<b/> docker-compose build</code>
+        <br/><code><b>$</b> docker-compose build</code>
         <br/><code><b>$</b> docker-compose up</code>
     </li>
     <li>After starting Docker container, 
