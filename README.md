@@ -7,14 +7,14 @@ To execute and test the application run below commands in terminal:
         <br/><code>git clone https://github.com/alejandro-mosso/phone-api-rest</code>
     </il>
     <li>Then run below commands under phone-api-rest:
-        <br/><code>docker-compose build</code>
-        <br/><code>docker-compose up</code>
+        <br/><code><b>$<b/> docker-compose build</code>
+        <br/><code><b>$</b> docker-compose up</code>
     </li>
     <li>After starting Docker container, 
     run below commands from terminal:
     <code>
-    <br/>curl -i -X POST -H "Content-Type: multipart/form-data" -F "numbers=@numbers.csv" http://localhost:9000/locate_numbers
-    <br/>curl http://localhost:9000/locate_numbers?number=+13101231234
+    <br/><b>$</b> curl -i -X POST -H "Content-Type: multipart/form-data" -F "numbers=@numbers.csv" http://localhost:9000/locate_numbers
+    <br/><b>$</b> curl http://localhost:9000/locate_numbers?number=+13101231234
     </code></li>
 </ul>
 <br/>
